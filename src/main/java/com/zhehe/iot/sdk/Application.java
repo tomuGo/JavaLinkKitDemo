@@ -78,7 +78,7 @@ public class Application {
             @Override
             public void run() {
                 Map<String, ValueWrapper> reportData = new HashMap<String, ValueWrapper>();
-                reportData.put("qwe",new ValueWrapper(2));
+                reportData.put("CT22B5",new ValueWrapper(2));
                 SampleUtils.reportProperty(reportData);
             }
         }, 3, 5, TimeUnit.SECONDS);

@@ -3,6 +3,7 @@ package com.zhehe.iot;
 import com.aliyun.alink.apiclient.CommonRequest;
 import com.aliyun.alink.apiclient.CommonResponse;
 import com.aliyun.alink.apiclient.IoTCallback;
+import com.aliyun.alink.apiclient.threadpool.ThreadPool;
 import com.aliyun.alink.apiclient.utils.StringUtils;
 import com.aliyun.alink.dm.api.DeviceInfo;
 import com.aliyun.alink.dm.api.InitResult;
@@ -21,6 +22,7 @@ import com.google.gson.reflect.TypeToken;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class HelloWorld {
     private static final String TAG = "HelloWorld";
@@ -139,11 +141,11 @@ public class HelloWorld {
 //            helloWorld.init(deviceInfoData);
 //        }
         // 定时上报
-//        ThreadPool.scheduleAtFixedRate(new Runnable() {
-//            public void run() {
-//                thingTestManager.report();
-//            }
-//        }, 3, 5, TimeUnit.SECONDS);
+        ThreadPool.scheduleAtFixedRate(new Runnable() {
+            public void run() {
+                thingTestManager.report();
+            }
+        }, 3, 5, TimeUnit.SECONDS);
     }
 
     private void testDeviceShadow() {
